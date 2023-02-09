@@ -3,14 +3,15 @@ import { Container } from "react-bootstrap";
 import { AuthProvider } from "../contexts/AuthContext";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Landing from "./Landing";
-import Signup from "./Signup";
+import Signup from "./Login/Signup";
 import Dashboard from "./Dashboard";
-import Login from "./Login";
-import PrivateRoute from "./PrivateRoute";
-import ForgotPassword from "./ForgotPassword";
-import List from "./List";
-import OwnerList from "./OwnerList";
-import UpdateProfile from "./UpdateProfile";
+import Login from "./Login/Login";
+import PrivateRoute from "./Login/PrivateRoute";
+import PrivateList from "./Lists/PrivateList";
+import ForgotPassword from "./Login/ForgotPassword";
+import List from "./Lists/List";
+import OwnerList from "./Lists/OwnerList";
+import PreviewList from "./Lists/PreviewList";
 
 function App() {
   return (
@@ -20,15 +21,17 @@ function App() {
           <Router>
             <AuthProvider>
               <Routes>
-                <Route path="/" element={<Landing />} />
-                <Route path="/dashboard" element={<PrivateRoute><Dashboard /></PrivateRoute>} />
-                <Route path="/list/" element={<PrivateRoute><List /></PrivateRoute>}>
-                  <Route path=":listId" element={<PrivateRoute><OwnerList /></PrivateRoute>} />
-                </Route>
-                <Route path="/update-profile" element={<PrivateRoute><UpdateProfile /></PrivateRoute>} />
-                <Route path="/signup" element={<Signup />} />
-                <Route path="/login" element={<Login />} />
-                <Route path="/forgot-password" element={<ForgotPassword />} />
+                <Route path="/" element={<PrivateRoute><Landing /></PrivateRoute>} />
+                <Route path="/dashboard" element={<Dashboard />} />
+                <Route path="/signup" element={<PrivateRoute><Signup /></PrivateRoute>} />
+                <Route path="/login" element={<PrivateRoute><Login /></PrivateRoute>} />
+                <Route path="/forgot-password" element={<PrivateRoute><ForgotPassword /></PrivateRoute>} />
+
+                <Route path="/list/:listId" element={<PrivateList><List /></PrivateList>} />
+                <Route path="/preview/:listId" element={<PrivateList><PreviewList /></PrivateList>} />
+                <Route path="/mylist/:listId" element={<PrivateList><OwnerList /></PrivateList>} />
+
+                <Route path="*" element={<Dashboard />} />
               </Routes>
             </AuthProvider>
           </Router>

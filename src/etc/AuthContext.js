@@ -1,6 +1,6 @@
 import { onValue } from 'firebase/database'
 import React, { useContext, useState, useEffect } from 'react'
-import { auth, db } from '../firebase'
+import { auth, db } from './firebase'
 import { ref } from "firebase/database"
 
 const AuthContext = React.createContext()

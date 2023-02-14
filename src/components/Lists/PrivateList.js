@@ -1,5 +1,5 @@
 import { useLocation, Navigate } from 'react-router-dom'
-import { useAuth } from '../../contexts/AuthContext'
+import { useAuth } from '../../etc/AuthContext'
 
 export default function PrivateList({ children }) {
     const { currentUser, profile } = useAuth();

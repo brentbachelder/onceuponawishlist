@@ -11,6 +11,7 @@ import ForgotPassword from "./Login/ForgotPassword";
 import List from "./Lists/List";
 import OwnerList from "./Lists/OwnerList";
 import PreviewList from "./Lists/PreviewList";
+import NewList from "./Lists/Components/NewList";
 
 function App() {
     return (
@@ -27,6 +28,8 @@ function App() {
                         <Route path="/list/:listId" element={<PrivateList><List /></PrivateList>} />
                         <Route path="/preview/:listId" element={<PrivateList><PreviewList /></PrivateList>} />
                         <Route path="/mylist/:listId" element={<PrivateList><OwnerList /></PrivateList>} />
+
+                        <Route path="/newlist" element={<PrivateList><NewList /></PrivateList>} />
 
                         <Route path="*" element={<Dashboard />} />
                     </Routes>

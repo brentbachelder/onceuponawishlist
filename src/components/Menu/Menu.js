@@ -38,8 +38,8 @@ export default function Menu({ setError }) {
                                 <div id="user-picture" className='user-picture' style={{ width: '30px', height: '30px', backgroundImage: `url(${userIcon})` }}></div>
                                 <div className='d-none d-sm-block'>My Profile</div>
                             </>}>
+                            <NavDropdown.Item as="button">Create List</NavDropdown.Item>
                             <NavDropdown.Item as="button" onClick={returnToDashboard}>Edit Profile</NavDropdown.Item>
-                            <NavDropdown.Item as="button">Something Else</NavDropdown.Item>
                             <NavDropdown.Divider />
                             <NavDropdown.Item as="button" onClick={ handleLogout }>Log Out</NavDropdown.Item>
                         </NavDropdown>
